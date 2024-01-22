@@ -1,7 +1,7 @@
 
 # Arabic Documents classification app based on OCR
 
-<img src="./img/Tesseract.png" width="200"/>)
+<img src="./img/Tesseract.png" width="400"/>)
 
 
 this project is a Python OCR(Optical Caracter Recognition) (html , css , JS) for frontend. 
@@ -9,9 +9,9 @@ It is a document classification app based on labels that the user can add or del
 The system transforms PDF into images (if the pdf has more than one page it becomes many images) .Then the program tries to figure out if it matches any of the labels , if not it will try to add a new label based on the keywords of the pdf. 
 Finally a new directory will be formed and will be named that keyword with the pdf associated to.
 
-
-<img src="./img/schema.png" width="200"/>
-
+<center>
+<img src="./img/schema.png" width="500"/>
+</center>
 
 
 ## License
@@ -39,9 +39,9 @@ pip install pytesseract
 ```
 
 ## Screenshots
-
-<img src="./img/app.png" width="200"/>
-
+<center>
+<img src="./img/app.png" width="700"/>
+</center>
 
 ## Optimizations
 
