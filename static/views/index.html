@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emotion Recognition Web App</title>
+</head>
+<body>
+    <h1>Emotion Recognition Web App</h1>
+    
+    <form action="/insert" method="post" enctype="multipart/form-data">
+        <label for="image">Upload Image:</label>
+        <input type="file" name="pdf" accept="temp/*">
+        <button type="submit">ajout</button>
+    </form>
+
+    <div>
+        <h2>Results:</h2>
+        <p>{{ label }}</p>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
