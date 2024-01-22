@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application classification arabe</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='file.css') }}"> 
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+        }
+
+        body {
+            flex-grow: 1;
+        }
+
+        .sidebar {
+            width: 20%;
+            background-color: #f1f1f1;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .labels-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .labels-list li {
+            margin-bottom: 10px;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Labels:</h2>
+        <ul class="labels-list">
+            {% for label in labels %}
+                <li>{{ label }}</li>
+            {% endfor %}
+        </ul>
+        <form action="/add_label" method="post">
+            <label for="new-label">Nouveau label:</label>
+            <input type="text" name="new_label" id="new-label" required>
+            <button type="submit">Ajouter Label</button>
+        </form>
+        <form action="/delete_label" method="post">
+            <label for="delete-label">Effacer un label:</label>
+            <select name="delete_label" id="delete-label">
+                {% for label in labels %}
+                    <option value="{{ label }}">{{ label }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit">Effacer Label</button>
+        </form>
+    </div>
+
+    <div class="main-content">
+        <h1>Application classification arabe</h1>
+        
+        <form action="/insert" method="post" enctype="multipart/form-data" id="upload-form">
+            <label for="pdf">Insérer PDF:</label>
+            <input type="file" name="pdf" id="pdf-input" accept=".pdf">
+            <button type="submit" id="predict-button">Labeliser</button>
+        </form>
+        
+        <div class="result-section">
+            <h2>Resultat:</h2>
+            <p id="prediction-text"></p>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='file.js') }}"></script> 
+</body>
+</html>
+
+
